@@ -1,0 +1,85 @@
+$sidebar-width: 280px;
+$sidebar-bg: $pink-100;
+$sidebar-text: $pink;
+
+//預設式行動版
+.sidebar {
+    position: fixed;
+    top:0;
+    z-index: 100;
+    width: $sidebar-width;
+    margin-left: -$sidebar-width;
+    transition: margin-left .25s;
+}
+
+.main {
+    width: 100%;
+    transition: margin-left .25s;
+}
+
+.sidebar-link {
+    a{
+        display:block;
+        padding: $spacer $spacer * 1.5;
+        text-decoration: none;
+        color: $black;
+    }
+    &:hover{
+        background: $sidebar-bg;
+        a{
+            color: $sidebar-text;
+        }
+    }
+}
+.sidebar-link.active{
+    background: $sidebar-bg;
+    position: relative;
+    a{
+        color: $sidebar-text;
+    }
+    &::after{
+        content: "";
+        font-weight: 600;
+        position: absolute;
+        top:0;
+        left:2px;
+        width: 5px;
+        height: 100%;
+        background: $sidebar-text;
+    }
+}
+
+//展開sidebar使用
+.sidebar-toggle {
+    .sidebar{
+        margin-left: 0;
+    }
+    .main{
+        margin-left: $sidebar-width;
+    }
+}
+
+//桌面版（up） --> 文件 > 排版 > 斷點 > 最小寬度
+@include media-breakpoint-up(lg) { 
+    .sidebar {
+        margin-left: 0;
+        width: $sidebar-width;
+    }
+    
+    .main {
+        width: calc(100vw - $sidebar-width);
+        // 如果變數被視為單純字串，可以使用井字號加大括號來包變數 --> #{變數}
+        margin-left: $sidebar-width;
+    }
+
+    //展開sidebar使用
+    .sidebar-toggle {
+        .sidebar{
+            margin-left: -$sidebar-width;
+        }
+        .main{
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後台管理</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#detail-list-item" data-bs-offset="80">
+    <div class="d-flex">
+        <aside class="sidebar vh-100 border-end bg-white d-flex flex-column pt-3">
+            <!-- 後臺名稱 -->
+            <div class="px-4 pb-3">
+                <strong>六角西餐廳</strong>
+                <span> - 後台管理</span>
+            </div>
+            <!-- 選單 -->
+            <ul class="overflow-auto list-unstyled sidebar-item">
+                <li class="sidebar-link">
+                    <a href="index.html">
+                        <i class="bi bi-house"></i>
+                        <span class="ps-2">首頁</span>
+                    </a>
+                </li>
+                <li class="sidebar-link">
+                    <a href="#col-order-list" class="d-block d-flex justify-content-between align-items-center" data-bs-toggle="collapse">
+                        <div>
+                            <i class="bi bi-list-check"></i>
+                            <span class="ps-2">訂單管理</span>
+                        </div>
+                        <i class="bi bi-caret-down"></i>
+                    </a>
+                </li>
+                <li class="sidebar-link">
+                    <div class="collapse show" id="col-order-list">
+                        <a href="orders.html">
+                                <span class="ps-2">訂單列表</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="sidebar-link active">
+                    <div class="collapse show" id="col-order-list">
+                        <a href="order.html">
+                                <span class="ps-2">單一訂單細節</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="sidebar-link mt-3">
+                    <!-- 登出按鈕 -->
+                    <a href="#">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span class="ps-2">登出</span>
+                    </a>
+                </li>
+
+            </ul>
+            
+
+        </aside>
+        <main class="main">
+            <!-- 導覽 -->
+            <div class="bg-white w-100 border-bottom sticky-top" style="z-index: 10;">
+                <a href="#" class="py-3 px-4 d-inline-block border-end link-dark" id="expand-btn"><i class="bi bi-arrows-angle-expand"></i></a>
+            </div>
+
+            <!-- 主要內容 -->
+            <div class="p-4">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="list-group sticky-top" style="top:80px; z-index: 10;" id="detail-list-item">
+                            <a href="#card-summary" class="list-group-item list-group-item-action">摘要</a>
+                            <a href="#card-detail" class="list-group-item list-group-item-action">購買品項</a>
+                            <a href="#card-invoice" class="list-group-item list-group-item-action">發票管理</a>
+                            <a href="#card-danger" class="list-group-item list-group-item-action">危險操作</a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <!-- 摘要 -->
+                        <div class="card mb-4" id="card-summary">
+                            <div class="card-header">
+                                <h4 class="mb-0 h5">摘要</h3>
+                            </div>
+                            <div class="card-body">
+                                <dl class="row mb-0">
+                                    <dt class="col-sm-3 text-truncate">訂單編號</dt>
+                                    <dd class="col-sm-9">TX123456789</dd>
+                                
+                                    <dt class="col-sm-3 text-truncate">訂單金額</dt>
+                                    <dd class="col-sm-9">1,800</dd>
+                                
+                                    <dt class="col-sm-3 text-truncate">訂單狀態</dt>
+                                    <dd class="col-sm-9">待處理</dd>
+                                
+                                    <dt class="col-sm-3 text-truncate">發票狀態</dt>
+                                    <dd class="col-sm-9">未開立</dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <!-- 購買品項 -->
+                        <div class="card mb-4" id="card-detail">
+                            <div class="card-header">
+                                <h4 class="mb-0 h5">購買品項</h3>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover text-nowrap mb-0">
+                                        <thead class="bg-light">
+                                            <tr class="align-middle">
+                                                <th scope="col" class="ps-4"></th>
+                                                <th scope="col" class="py-3">貨號</th>
+                                                <th scope="col">商品名稱</th>
+                                                <th scope="col">售價</th>
+                                                <th scope="col">訂購數量</th>
+                                                <th scope="col">出貨狀態</th>
+                                                <th scope="col" class="pe-4">編輯</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="align-middle">
+                                                <td scope="row" class="ps-4">
+                                                    <input type="checkbox" class="form-check-input">
+                                                </td>
+                                                <td>H124576</td>
+                                                <td>大麥克漢堡</td>
+                                                <td>120</td>
+                                                <td>3</td>
+                                                <td>尚未出貨</td>
+                                                <td class="pe-2"> 
+                                                    <a href="#" class="btn btn-outline-dark btn-sm">編輯<i class="bi bi-pencil ps-2"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr class="align-middle">
+                                                <td scope="row" class="ps-4">
+                                                    <input type="checkbox" class="form-check-input">
+                                                </td>
+                                                <td>H124576</td>
+                                                <td>大麥克漢堡</td>
+                                                <td>120</td>
+                                                <td>3</td>
+                                                <td>尚未出貨</td>
+                                                <td class="pe-2"> 
+                                                    <a href="#" class="btn btn-outline-dark btn-sm">編輯<i class="bi bi-pencil ps-2"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr class="align-middle">
+                                                <td scope="row" class="ps-4">
+                                                    <input type="checkbox" class="form-check-input">
+                                                </td>
+                                                <td>H124576</td>
+                                                <td>大麥克漢堡</td>
+                                                <td>120</td>
+                                                <td>3</td>
+                                                <td>尚未出貨</td>
+                                                <td class="pe-2"> 
+                                                    <a href="#" class="btn btn-outline-dark btn-sm">編輯<i class="bi bi-pencil ps-2"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="card-footer">
+                                        <button class="btn btn-outline-dark dropdown-toggle btn-sm" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            出貨狀態管理
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">尚未出貨</a></li>
+                                            <li><a class="dropdown-item" href="#">已出貨</a></li>
+                                            <li><a class="dropdown-item" href="#">已取貨</a></li>
+                                            <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-order-id="TX123456">刪除品項</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 發票管理 -->
+                        <div class="card mb-4" id="card-invoice">
+                                <div class="card-header">
+                                    <h4 class="mb-0 h5">發票管理</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row g-3 align-items-center mb-3">
+                                            <div class="col-2">
+                                            <label for="invoiceTypes" class="col-form-label">發票類型</label>
+                                            </div>
+                                            <div class="col">
+                                                <select class="form-select" aria-label="Default select example" id="invoiceTypes">
+                                                    <option value="1">捐贈發票</option>
+                                                    <option value="2">個人發票</option>
+                                                    <option value="3">營業人三聯式發票</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row g-3 align-items-center mb-3">
+                                            <div class="col-2">
+                                            <label for="invoiceNumber" class="col-form-label">統一編號</label>
+                                            </div>
+                                            <div class="col">
+                                            <input type="password" id="invoiceNumber" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row g-3 align-items-center mb-3">
+                                            <div class="col-2">
+                                            <label for="company" class="col-form-label">公司名稱</label>
+                                            </div>
+                                            <div class="col">
+                                            <input type="password" id="company" class="form-control">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-outline-primary d-block ms-auto mt-4">更新資訊</button>
+                                    </form>
+                                </div>
+
+                        </div>
+
+                        <!-- 危險操作 -->
+                        <div class="card mb-4" id="card-danger">
+                                <div class="card-header">
+                                    <h4 class="mb-0 h5">危險操作</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row align-items-center mb-3">
+                                        <div class="col-2">
+                                            <button type="button" class="btn btn-outline-secondary w-100">退款</button>
+                                        </div>
+                                        <div class="col">退還用戶款項</div>
+                                    </div>
+                                    <div class="row align-items-center mb-3">
+                                        <div class="col-2">
+                                            <button type="button" class="btn btn-outline-secondary w-100">折讓</button>
+                                        </div>
+                                        <div class="col">針對已開立的訂單退回部分款項</div>
+                                    </div>
+                                    <div class="row align-items-center mb-3">
+                                        <div class="col-2">
+                                            <button type="button" class="btn btn-outline-danger w-100">刪除訂單</button>
+                                        </div>
+                                        <div class="col">將訂單刪除，並移除相關訂單資訊</div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="javascripts/all.js"></script>
+</body>
+</html>
